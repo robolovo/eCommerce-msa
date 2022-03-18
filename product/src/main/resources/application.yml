@@ -1,6 +1,9 @@
+server:
+  port: 0
+
 spring:
   application:
-    name: product
+    name: product-service
   h2:
     console:
       enabled: true
