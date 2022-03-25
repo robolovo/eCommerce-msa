@@ -19,6 +19,10 @@ A simple commerce application based on microservice architecture using Spring Cl
 
 이 커머스 어플리케이션에 참여하는 모든 서비스들은 REST API를 통해 다른 서비스들과 통신을 한다. 트랜잭션의 연산들이 수행되는 도중에 어떤 연산이 실패하게 되면 그 연산 전에 수행되었던 모든 연산들을 rollback 해야 하는데, 이를 위해 비동기 메세지 큐인 카프카를 사용하였다.
 
-(TBD - 그림 추가)
+<br>
+
+![스크린샷 2022-03-25 오전 10 26 48](https://user-images.githubusercontent.com/55264231/160036748-6ce2e557-5cf4-4e37-8c4d-bcdcb23d0f72.png)
+
+<br>
 
 주문 도중에 결제 서비스에서 오류가 나게 되면 카프카를 통해 상품 서비스에게 알리고 이를 통해 차감되었던 상품의 재고 수량을 다시 이전 수량으로 되돌려 주어 결과적 일관성(eventual consistency)을 지키도록 해주었다.
